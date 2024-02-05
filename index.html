@@ -2,12 +2,6 @@
 <html>
   <head>
     <style>
-      .outer-app {
-        border: 1px solid black;
-        margin: 20px;
-        padding: 20px;
-      }
-
       #root {
         border: 1px solid black;
         margin: 20px;
@@ -17,38 +11,19 @@
   </head>
   <body>
 
-    <div class='outer-app'>
-      <h1>Outer App</h1>
-      <input type='text' id='update-text'></input>
-      <button id='update-button'>Outer Button</button>
+    <script src="https://cdn.jsdelivr.net/gh/iobio/timeline/dist/timeline.min.js"></script>
 
-      <div id='root'></div>
+    <script>
 
-      <div id='timeline-events-container'></div>
-    </div>
+      const data = {
+        events: [
+        ],
+      };
 
-    <script type='module'>
-
-      import { TimelineComponent } from './timeline.js';
-
-      const timeline = TimelineComponent();
+      const timeline = Timeline(data);
 
       const rootElement = document.getElementById('root');
       rootElement.appendChild(timeline.dom);
-
-      const updateText = document.getElementById('update-text');
-      const updateButton = document.getElementById('update-button');
-      updateButton.addEventListener('click', (e) => {
-        timeline.updateFunc(updateText.value);
-      });
-
-      const timelineEventsContainer = document.getElementById('timeline-events-container');
-
-      timeline.dom.addEventListener('submit-button-clicked', (e) => {
-        const div = document.createElement('div');
-        div.innerText = "Text from Timeline Component event: " + e.detail.text;
-        timelineEventsContainer.appendChild(div);
-      });
 
     </script>
   </body>
