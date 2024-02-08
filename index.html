@@ -11,19 +11,48 @@
   </head>
   <body>
 
+    <div id='root'></div>
+
     <script src="https://cdn.jsdelivr.net/gh/iobio/timeline/dist/timeline.min.js"></script>
 
     <script>
 
       const data = {
         events: [
+          {
+            "type": "Application Submitted",
+            "date": "2017-01-01",
+            "description": "Application submitted to the timeline"
+          },    
+          {
+            "type": "Medical Records Submitted",
+            "date": "2017-07-02",
+            "description": "Medical records submitted to the timeline"
+          },
+          {
+            "type": "Medical Records Submitted",
+            "date": "2017-07-03",
+            "description": "Medical records submitted to the timeline"
+          },
+          {
+            "type": "Medical Records Submitted",
+            "date": "2017-07-04",
+            "description": "Medical records submitted to the timeline"
+          },
+          {
+            "type": "Medical Records Submitted",
+            "date": "2017-07-10",
+            "description": "Medical records submitted to the timeline"
+          },
         ],
       };
 
-      const timeline = Timeline(data);
+      const tl = timeline.Timeline().createTimeline(data);
+
+      console.log(tl);
 
       const rootElement = document.getElementById('root');
-      rootElement.appendChild(timeline.dom);
+      rootElement.appendChild(tl);
 
     </script>
   </body>
